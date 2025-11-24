@@ -12,7 +12,7 @@ public class cumpleAgenda {
         this.Mes = mes;
     }
 
-    public String GetNombre() {
+     public String GetNombre() {
         return Nombre;
     }
 
