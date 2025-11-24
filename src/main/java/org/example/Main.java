@@ -11,50 +11,29 @@ public class Main {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println(Constantes.AGENDA);
-            System.out.println(Constantes.LISTAR);
-            System.out.println(Constantes.POR_DIA);
-            System.out.println(Constantes.POR_NOMBRE);
-            System.out.println(Constantes.AÑADIR);
-            System.out.println(Constantes.ELIMINAR);
-            System.out.println(Constantes.SALIR);
+            menu();
 
             String opcion = sc.nextLine();
 
             switch (opcion) {
                 case "1":
-                    for (CumpleAgenda c : repo.getLista()) {
-                        System.out.println(c.getNombre());
-                    }
+                    case1(repo);
                     break;
 
                 case "2":
-                    System.out.print(Constantes.DIA);
-                    int dia = Integer.parseInt(sc.nextLine());
-                    for (CumpleAgenda c : repo.buscarPorDia(dia)) {
-                        System.out.println(c.getNombre());
-                    }
+                    case2(sc, repo);
                     break;
 
                 case "3":
-                    System.out.print(Constantes.NOMBRE);
-                    CumpleAgenda c = repo.buscarPorNombre(sc.nextLine());
-                    if (c != null) System.out.println(c.getNombre());
+                    case3(repo, sc);
                     break;
 
                 case "4":
-                    System.out.print(Constantes.NOMBRE);
-                    String nombre = sc.nextLine();
-                    System.out.print(Constantes.DIA);
-                    int d = Integer.parseInt(sc.nextLine());
-                    System.out.print(Constantes.MES);
-                    int m = Integer.parseInt(sc.nextLine());
-                    repo.addCumple(new CumpleAgenda(nombre, d, m));
+                    case4(sc, repo);
                     break;
 
                 case "5":
-                    System.out.print(Constantes.ELIMINAR_NOMBRE);
-                    repo.eliminarPorNombre(sc.nextLine());
+                    case5(repo, sc);
                     break;
 
                 case "6":
@@ -62,5 +41,50 @@ public class Main {
                     break;
             }
         }
+    }
+
+    private static void case5(CumpleRepo repo, Scanner sc) {
+        System.out.print(Constantes.ELIMINAR_NOMBRE);
+        repo.eliminarPorNombre(sc.nextLine());
+    }
+
+    private static void case4(Scanner sc, CumpleRepo repo) {
+        System.out.print(Constantes.NOMBRE);
+        String nombre = sc.nextLine();
+        System.out.print(Constantes.DIA);
+        int d = Integer.parseInt(sc.nextLine());
+        System.out.print(Constantes.MES);
+        int m = Integer.parseInt(sc.nextLine());
+        repo.addCumple(new CumpleAgenda(nombre, d, m));
+    }
+
+    private static void case3(CumpleRepo repo, Scanner sc) {
+        System.out.print(Constantes.NOMBRE);
+        CumpleAgenda c = repo.buscarPorNombre(sc.nextLine());
+        if (c != null) System.out.println(c.getNombre());
+    }
+
+    private static void case2(Scanner sc, CumpleRepo repo) {
+        System.out.print(Constantes.DIA);
+        int dia = Integer.parseInt(sc.nextLine());
+        for (CumpleAgenda c : repo.buscarPorDia(dia)) {
+            System.out.println(c.getNombre());
+        }
+    }
+
+    private static void case1(CumpleRepo repo) {
+        for (CumpleAgenda c : repo.getLista()) {
+            System.out.println(c.getNombre());
+        }
+    }
+
+    private static void menu() {
+        System.out.println(Constantes.AGENDA);
+        System.out.println(Constantes.LISTAR);
+        System.out.println(Constantes.POR_DIA);
+        System.out.println(Constantes.POR_NOMBRE);
+        System.out.println(Constantes.AÑADIR);
+        System.out.println(Constantes.ELIMINAR);
+        System.out.println(Constantes.SALIR);
     }
 }
