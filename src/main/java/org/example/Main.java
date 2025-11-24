@@ -2,11 +2,11 @@ package org.example;
 
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
 
-        cumpleRepo repo = new cumpleRepo();
+        CumpleRepo repo = new CumpleRepo();
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
 
@@ -23,23 +23,23 @@ public class main {
 
             switch (opcion) {
                 case "1":
-                    for (cumpleAgenda c : repo.GetLista()) {
-                        System.out.println(c.GetNombre());
+                    for (CumpleAgenda c : repo.getLista()) {
+                        System.out.println(c.getNombre());
                     }
                     break;
 
                 case "2":
                     System.out.print("Día: ");
                     int dia = Integer.parseInt(sc.nextLine());
-                    for (cumpleAgenda c : repo.BuscarPorDia(dia)) {
-                        System.out.println(c.GetNombre());
+                    for (CumpleAgenda c : repo.buscarPorDia(dia)) {
+                        System.out.println(c.getNombre());
                     }
                     break;
 
                 case "3":
                     System.out.print("Nombre: ");
-                    cumpleAgenda c = repo.BuscarPorNombre(sc.nextLine());
-                    if (c != null) System.out.println(c.GetNombre());
+                    CumpleAgenda c = repo.buscarPorNombre(sc.nextLine());
+                    if (c != null) System.out.println(c.getNombre());
                     break;
 
                 case "4":
@@ -49,12 +49,12 @@ public class main {
                     int d = Integer.parseInt(sc.nextLine());
                     System.out.print("Mes: ");
                     int m = Integer.parseInt(sc.nextLine());
-                    repo.AddCumple(new cumpleAgenda(nombre, d, m));
+                    repo.addCumple(new CumpleAgenda(nombre, d, m));
                     break;
 
                 case "5":
                     System.out.print("Eliminar nombre: ");
-                    repo.EliminarPorNombre(sc.nextLine());
+                    repo.eliminarPorNombre(sc.nextLine());
                     break;
 
                 case "6":
