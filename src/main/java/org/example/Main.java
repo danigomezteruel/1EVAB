@@ -1,9 +1,17 @@
 package org.example;
 
+
 import java.util.Scanner;
-
+/**
+ * @author Dani
+ *
+ */
 public class Main {
-
+    /**
+     * Este es el main. Muestra el menú al usuario y sirve para que se mueva por el programa.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         CumpleRepo repo = new CumpleRepo();

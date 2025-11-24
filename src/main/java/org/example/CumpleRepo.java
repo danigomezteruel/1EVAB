@@ -2,9 +2,15 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Dani
+ *
+ */
 public class CumpleRepo {
-
+    /**
+     * Esta clase utiliza los datos que ha puesto el usuario para comprobar si coinciden
+     * con los valores de las listas.
+     */
     private List<CumpleAgenda> lista = new ArrayList<>();
 
     public List<CumpleAgenda> getLista() {

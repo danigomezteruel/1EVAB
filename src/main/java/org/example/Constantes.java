@@ -1,5 +1,11 @@
 package org.example;
 
+/**
+ * @author Dani
+ *
+ * Esta clase almacena las constantes.
+ */
+
 public class Constantes {
     public static final String NOMBRE = "Nombre: ";
     public static final String AGENDA = "\n=== AGENDA ===";

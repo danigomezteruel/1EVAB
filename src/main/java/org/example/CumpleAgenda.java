@@ -1,7 +1,13 @@
 package org.example;
-
+/**
+ * @author Dani
+ *
+ */
 public class CumpleAgenda {
-
+    /**
+     * Esta clase crea las variables de los datos del usuario
+     * y les asigna el valor que este introduzca.
+     */
     private String nombre;
     private int dia;
     private int mes;
